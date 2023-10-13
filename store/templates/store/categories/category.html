@@ -1,4 +1,4 @@
-{% extends "store/layout.html" %}
+{% extends "store/layout/layout.html" %}
 
 {% block title %}
   {{ category.name }}
@@ -9,5 +9,5 @@
     {{ category.name }}
   </h1>
 
-  {% include "store/products_list.html" %}
+  {% include "store/products/products_list.html" %}
 {% endblock  %}

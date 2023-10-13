@@ -1,6 +1,6 @@
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+<div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 g-3">
   {% for product in products %}
-    <div class="col-4">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
       <div class="card shadow-sm">
         <img src="{{ product.image.url }}" style="object-fit: cover; height: 300px" alt="">
         <div class="card-body">
