@@ -14,10 +14,16 @@ A django website that will allow a store to manage their inventory. The inventor
 
 ### Install
 
-Install this project with
+- Install django
 
 ```python
 pip install django
+```
+
+- Install requirements
+
+```python
+pip install -r requirements.txt
 ```
 
 ### Executing program

@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.query import QuerySet
 from django.urls import reverse
 from django.contrib.auth.models import User
 
@@ -11,10 +12,15 @@ class Category(models.Model):
         verbose_name_plural = "categories"
 
     def get_absolute_url(self):
-        return reverse("store:category", args=[self.slug])
+        return reverse("store:category_detail", args=[self.slug])
 
     def __str__(self) -> str:
         return self.name
+
+
+class ProductManager(models.Manager):
+    def get_queryset(self) -> QuerySet:
+        return super(ProductManager, self).get_queryset().filter(published=True)
 
 
 class Product(models.Model):
@@ -59,7 +65,10 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    image = models.ImageField(upload_to="images/", null=True, blank=True)
+    image = models.ImageField(upload_to="images/", default="images/default.jpg")
+
+    objects = models.Manager()
+    products = ProductManager()
 
     class Meta:
         verbose_name_plural = "products"
@@ -69,7 +78,7 @@ class Product(models.Model):
         return f"{self.title} ({self.size}{self.size_unit})"
 
     def get_absolute_url(self):
-        return reverse("store:product", args=[self.slug])
+        return reverse("store:product_detail", args=[self.slug])
 
     @property
     def size(self):
