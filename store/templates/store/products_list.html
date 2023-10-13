@@ -1,0 +1,34 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  {% for product in products %}
+    <div class="col-4">
+      <div class="card shadow-sm">
+        <img src="{{ product.image.url }}" style="object-fit: cover; height: 300px" alt="">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="{{ product.get_absolute_url }}">
+              {{ product }}
+            </a>
+          </h5>
+          <p class="card-text">
+            {{ product.description | truncatechars:150 }}
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">
+                Add to cart
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-secondary flex items-center justify-center">
+                <ion-icon name="heart-outline" style="font-size: 1.6em; margin-top: 3px"></ion-icon>
+              </button>
+            </div>
+            <h6 class="text-success text-bold">
+              <strong>
+                NGN{{ product.price }}
+              </strong>
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

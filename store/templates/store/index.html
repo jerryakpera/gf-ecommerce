@@ -1,0 +1,19 @@
+{% extends "store/layout.html" %}
+
+{% block title %}
+  Healthy living
+{% endblock  %}
+
+{% block body %}
+  <div class="p-5 mb-4 rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Healthy foods and oils</h1>
+      <p class="col-md-8 fs-4">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam esse mollitia illo reiciendis cumque eius laboriosam? Eligendi eum, ipsam dolores id sint distinctio nihil?
+      </p>
+      <button class="btn btn-primary btn-lg" type="button">Place an order</button>
+    </div>
+  </div>
+
+  {% include "store/products_list.html" %}
+{% endblock  %}
